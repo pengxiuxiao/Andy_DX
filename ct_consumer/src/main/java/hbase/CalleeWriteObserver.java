@@ -29,6 +29,7 @@ public class CalleeWriteObserver extends BaseRegionObserver {
     public void postPut(ObserverContext<RegionCoprocessorEnvironment> e, Put put, WALEdit edit, Durability durability) throws IOException {
         super.postPut(e, put, edit, durability);
         //获取操作的目录表
+        //获取操作的目录表
         String targetTableName = PropertiesUtil.getProperty("hbase.calllog.tablename");
 
         //获取当前put数据的表

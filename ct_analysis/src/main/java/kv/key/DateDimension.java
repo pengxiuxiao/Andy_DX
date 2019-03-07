@@ -1,7 +1,6 @@
 package kv.key;
 
 import kv.base.BaseDimension;
-import kv.base.BaseValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

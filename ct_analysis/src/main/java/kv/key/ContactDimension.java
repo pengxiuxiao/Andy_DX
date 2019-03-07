@@ -21,7 +21,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactDimension extends BaseDimension {
-    private String telephopne;
+    private String telephone;
     private String name;
 
     @Override
@@ -31,33 +31,37 @@ public class ContactDimension extends BaseDimension {
         if (result != 0) {
             return result;
         }
-        result  = this.telephopne.compareTo(anotherContactDimendion.telephopne);
+        result  = this.telephone.compareTo(anotherContactDimendion.telephone);
         return result;
     }
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeUTF(this.telephopne);
+        out.writeUTF(this.telephone);
         out.writeUTF(this.name);
     }
 
     @Override
     public void readFields(DataInput in) throws IOException {
-        this.telephopne = in.readUTF();
+        this.telephone = in.readUTF();
         this.name = in.readUTF();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         ContactDimension that = (ContactDimension) o;
-        return Objects.equals(telephopne, that.telephopne) &&
+        return Objects.equals(telephone, that.telephone) &&
                 Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(telephopne, name);
+        return Objects.hash(telephone, name);
     }
 }

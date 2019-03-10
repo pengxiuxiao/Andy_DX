@@ -18,7 +18,7 @@ public class JDBCInstance {
      * 获取连接实例
      * @return
      */
-    public static Connection gentInstance(){
+    public static Connection getInstance(){
         try {
             if (connection == null || connection.isClosed()) {
                 connection = JDBCUtils.getConnection();

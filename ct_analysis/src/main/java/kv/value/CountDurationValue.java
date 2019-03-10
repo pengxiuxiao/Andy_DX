@@ -39,8 +39,12 @@ public class CountDurationValue extends BaseValue {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         CountDurationValue that = (CountDurationValue) o;
         return Objects.equals(callSum, that.callSum) &&
                 Objects.equals(callDurationSum, that.callDurationSum);

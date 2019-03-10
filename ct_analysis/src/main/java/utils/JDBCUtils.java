@@ -19,7 +19,7 @@ public class JDBCUtils {
      * 实例化JDBC连接器
      * @return
      */
-    public static Connection getConnection(){
+    public static Connection  getConnection(){
         try {
             Class.forName(MYSQL_DRIVER_CLASS);
             return DriverManager.getConnection(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);

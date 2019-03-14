@@ -16,24 +16,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/10 12:07
- * @Version 1.0
+ * @author Andy
  */
-public class MysqlOutputFormat extends OutputFormat<ComDimension, CountDurationValue> {
+public class MysqlOutputFormat extends OutputFormat<ComDimension, CountDurationValue>{
     private OutputCommitter committer = null;
 
     @Override
-    public RecordWriter<ComDimension, CountDurationValue> getRecordWriter(TaskAttemptContext context) {
-        //初始化JDBC连接器对象
-        Connection conn = null;
-        conn = JDBCInstance.getInstance();
-        try {
-            conn.setAutoCommit(false);
-        } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());
-        }
-        return new MysqlRecordWriter(conn);
+        public RecordWriter<ComDimension, CountDurationValue> getRecordWriter(TaskAttemptContext context) {
+            //初始化JDBC连接器对象
+            Connection conn = null;
+            conn = JDBCInstance.getInstance();
+            try {
+                conn.setAutoCommit(false);
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());
+            }
+            return new MysqlRecordWriter(conn);
     }
 
     @Override

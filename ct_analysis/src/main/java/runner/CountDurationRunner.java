@@ -1,5 +1,6 @@
 package runner;
 
+
 import kv.key.ComDimension;
 import kv.value.CountDurationValue;
 import mapper.CountDurationMapper;
@@ -21,11 +22,9 @@ import reducer.CountDurationReducer;
 import java.io.IOException;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/10 23:11
- * @Version 1.0
+ * @author Andy
  */
-public class CountDurationRunner implements Tool {
+public class CountDurationRunner implements Tool{
     private Configuration conf = null;
     @Override
     public void setConf(Configuration conf) {
@@ -55,7 +54,7 @@ public class CountDurationRunner implements Tool {
         Connection connection = null;
         Admin admin = null;
         try {
-            String tableName = "ns_ct:calllog";
+            String tableName = "ns_pxx:calllog";
             connection = ConnectionFactory.createConnection(job.getConfiguration());
             admin = connection.getAdmin();
             if(!admin.tableExists(TableName.valueOf(tableName))) {

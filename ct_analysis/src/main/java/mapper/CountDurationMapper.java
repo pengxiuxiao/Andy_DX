@@ -23,7 +23,7 @@ public class CountDurationMapper extends TableMapper<ComDimension, Text> {
 
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
-        super.setup(context);
+//        super.setup(context);
         phoneMap = new HashMap<>(20);
         phoneMap.put("17078388295", "李雁");
         phoneMap.put("13980337439", "卫艺");
@@ -49,7 +49,7 @@ public class CountDurationMapper extends TableMapper<ComDimension, Text> {
 
     @Override
     protected void map(ImmutableBytesWritable key, Result value, Context context) throws IOException, InterruptedException {
-        super.map(key, value, context);
+//        super.map(key, value, context);
         //05_19902496992_20180312154840_15542823911_1_1288
         String rowkey = Bytes.toString(key.get());
         String[] splits = rowkey.split("_");

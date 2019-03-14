@@ -1,5 +1,6 @@
 package kv.key;
 
+
 import kv.base.BaseDimension;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,9 +13,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/4 22:40
- * @Version 1.0
+ * @author Andy
  */
 @Setter
 @Getter
@@ -58,8 +57,12 @@ public class DateDimension extends BaseDimension {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         DateDimension that = (DateDimension) o;
         return Objects.equals(year, that.year) &&
                 Objects.equals(month, that.month) &&

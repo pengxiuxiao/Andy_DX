@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/4 22:44
- * @Version 1.0
+ * @author Andy
  */
 @Setter
 @Getter
@@ -50,12 +48,8 @@ public class ComDimension extends BaseDimension {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         ComDimension that = (ComDimension) o;
         return Objects.equals(contactDimension, that.contactDimension) &&
                 Objects.equals(dateDimension, that.dateDimension);

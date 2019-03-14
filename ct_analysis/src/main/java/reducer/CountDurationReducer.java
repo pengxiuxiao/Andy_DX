@@ -2,22 +2,20 @@ package reducer;
 
 import kv.key.ComDimension;
 import kv.value.CountDurationValue;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
+import javax.xml.soap.Text;
 import java.io.IOException;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/10 12:13
- * @Version 1.0
+ * @author Andy
  */
-public class CountDurationReducer extends Reducer<ComDimension, Text, ComDimension, CountDurationValue>  {
+public class CountDurationReducer extends Reducer<ComDimension, Text, ComDimension, CountDurationValue> {
     private CountDurationValue countDurationValue = new CountDurationValue();
 
     @Override
     protected void reduce(ComDimension key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        super.reduce(key, values, context);
+//        super.reduce(key, values, context);
         int callSum = 0;
         int callDuration = 0;
         for (Text t : values) {

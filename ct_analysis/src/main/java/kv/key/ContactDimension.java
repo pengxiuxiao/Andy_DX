@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/4 21:27
- * @Version 1.0
+ * @author Andy
  */
 @Setter
 @Getter
@@ -26,12 +24,13 @@ public class ContactDimension extends BaseDimension {
 
     @Override
     public int compareTo(BaseDimension o) {
-        ContactDimension anotherContactDimendion = (ContactDimension) o;
-        int result = this.name.compareTo(anotherContactDimendion.name);
+        ContactDimension anotherContactDimension= (ContactDimension) o;
+        int result = this.name.compareTo(anotherContactDimension.name);
         if (result != 0) {
             return result;
         }
-        result  = this.telephone.compareTo(anotherContactDimendion.telephone);
+
+        result = this.telephone.compareTo(anotherContactDimension.telephone);
         return result;
     }
 
@@ -49,12 +48,8 @@ public class ContactDimension extends BaseDimension {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         ContactDimension that = (ContactDimension) o;
         return Objects.equals(telephone, that.telephone) &&
                 Objects.equals(name, that.name);

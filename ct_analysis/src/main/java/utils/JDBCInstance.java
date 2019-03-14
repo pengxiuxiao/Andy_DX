@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/5 0:00
- * @Version 1.0
+ * @author Andy
  */
 public class JDBCInstance {
     private static Connection connection = null;
@@ -14,13 +12,9 @@ public class JDBCInstance {
     public JDBCInstance() {
     }
 
-    /**
-     * 获取连接实例
-     * @return
-     */
     public static Connection getInstance(){
         try {
-            if (connection == null || connection.isClosed()) {
+            if (connection == null || connection.isClosed() || !connection.isValid(3)) {
                 connection = JDBCUtils.getConnection();
             }
         } catch (SQLException e) {
@@ -28,4 +22,5 @@ public class JDBCInstance {
         }
         return connection;
     }
+
 }

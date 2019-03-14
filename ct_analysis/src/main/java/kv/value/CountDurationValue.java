@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * @Author: pxx
- * @Date: 2019/3/4 22:00
- * @Version 1.0
+ * @author Andy
  */
 @Setter
 @Getter
@@ -24,11 +22,11 @@ public class CountDurationValue extends BaseValue {
     private String callSum;
     private String callDurationSum;
 
-
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeUTF(this.callSum);
         dataOutput.writeUTF(this.callDurationSum);
+
     }
 
     @Override
@@ -39,12 +37,8 @@ public class CountDurationValue extends BaseValue {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         CountDurationValue that = (CountDurationValue) o;
         return Objects.equals(callSum, that.callSum) &&
                 Objects.equals(callDurationSum, that.callDurationSum);

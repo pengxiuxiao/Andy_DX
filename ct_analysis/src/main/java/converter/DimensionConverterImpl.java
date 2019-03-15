@@ -3,9 +3,9 @@ package converter;
 import kv.base.BaseDimension;
 import kv.key.ContactDimension;
 import kv.key.DateDimension;
+import utils.JDBCInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import utils.JDBCInstance;
 import utils.JDBCUtils;
 import utils.LRUCache;
 

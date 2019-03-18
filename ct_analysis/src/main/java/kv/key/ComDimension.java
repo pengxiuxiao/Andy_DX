@@ -9,27 +9,23 @@ import lombok.Setter;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import java.util.Objects;
 
-/**
- * @author Andy
- */
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class ComDimension extends BaseDimension {
+    //注:不要用抽象类或者接口当做类型来使用
     private ContactDimension contactDimension = new ContactDimension();
     private DateDimension dateDimension = new DateDimension();
 
     @Override
     public int compareTo(BaseDimension o) {
         ComDimension anotherComDimension = (ComDimension) o;
+        //先年月日
         int result = this.dateDimension.compareTo(anotherComDimension.dateDimension);
-        if (result != 0) {
-            return result;
-        }
-
+        if(result != 0) return result;
+        //比较电话号
         result = this.contactDimension.compareTo(anotherComDimension.contactDimension);
         return result;
     }
@@ -44,19 +40,5 @@ public class ComDimension extends BaseDimension {
     public void readFields(DataInput in) throws IOException {
         contactDimension.readFields(in);
         dateDimension.readFields(in);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ComDimension that = (ComDimension) o;
-        return Objects.equals(contactDimension, that.contactDimension) &&
-                Objects.equals(dateDimension, that.dateDimension);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(contactDimension, dateDimension);
     }
 }

@@ -12,7 +12,8 @@
         <module>ct_producer</module>
         <module>ct_consumer</module>
         <module>ct_analysis</module>
-        <module>ct_web</module>
+        <module>hdfs_api</module>
+        <module>mr</module>
     </modules>
 
     <properties>

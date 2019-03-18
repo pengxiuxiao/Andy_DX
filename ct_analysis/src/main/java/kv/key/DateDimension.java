@@ -1,6 +1,5 @@
 package kv.key;
 
-
 import kv.base.BaseDimension;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,34 +9,45 @@ import lombok.Setter;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import java.util.Objects;
 
-/**
- * @author Andy
- */
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class DateDimension extends BaseDimension {
     private String year;
     private String month;
     private String day;
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DateDimension that = (DateDimension) o;
+
+        if (year != null ? !year.equals(that.year) : that.year != null) return false;
+        if (month != null ? !month.equals(that.month) : that.month != null) return false;
+        return day != null ? day.equals(that.day) : that.day == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = year != null ? year.hashCode() : 0;
+        result = 31 * result + (month != null ? month.hashCode() : 0);
+        result = 31 * result + (day != null ? day.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public int compareTo(BaseDimension o) {
-        DateDimension anotherDataDimension = (DateDimension) o;
-        int result = this.year.compareTo(anotherDataDimension.year);
-        if (result != 0) {
-            return result;
-        }
+        DateDimension anotherDateDimension = (DateDimension)o;
+        int result = this.year.compareTo(anotherDateDimension.year);
+        if(result != 0) return result;
 
-        result = this.month.compareTo(anotherDataDimension.month);
-        if (result != 0) {
-            return result;
-        }
-
-        result = this.day.compareTo(anotherDataDimension.day);
+        result = this.month.compareTo(anotherDateDimension.month);
+        if(result != 0) return result;
+        result = this.day.compareTo(anotherDateDimension.day);
         return result;
     }
 
@@ -53,24 +63,5 @@ public class DateDimension extends BaseDimension {
         this.year = in.readUTF();
         this.month = in.readUTF();
         this.day = in.readUTF();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DateDimension that = (DateDimension) o;
-        return Objects.equals(year, that.year) &&
-                Objects.equals(month, that.month) &&
-                Objects.equals(day, that.day);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(year, month, day);
     }
 }

@@ -38,6 +38,10 @@ public class FlowSortDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FlowBean.class);
 
+        //设置partition
+        job.setPartitionerClass(FlowSortPartitioner.class);
+        job.setNumReduceTasks(5);
+
         //6.设置文件读取 输出目录
         FileInputFormat.setInputPaths(job,new Path("e:/flow/out"));
         FileOutputFormat.setOutputPath(job, new Path("e:/flow/out1"));

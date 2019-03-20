@@ -44,7 +44,7 @@ public class FlowSortDriver {
 
         //6.设置文件读取 输出目录
         FileInputFormat.setInputPaths(job,new Path("e:/flow/out"));
-        FileOutputFormat.setOutputPath(job, new Path("e:/flow/out1"));
+        FileOutputFormat.setOutputPath(job, new Path("e:/flow/out2"));
         //7.启动任务
         boolean rs = job.waitForCompletion(true);
         System.out.println(rs);

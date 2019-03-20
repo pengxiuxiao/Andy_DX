@@ -36,6 +36,9 @@ public class WordCountDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
+        //设置combiner，进行局部汇总 优化成寻
+        job.setCombinerClass(WordCountCombiner.class);
+
         //6.设置输入存在的路径与处理后的结果路径
         FileInputFormat.setInputPaths(job, new Path("/pxx"));
         FileOutputFormat.setOutputPath(job, new Path("/pxx/0319out"));

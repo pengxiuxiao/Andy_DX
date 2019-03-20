@@ -1,4 +1,4 @@
-package com.supadata;
+package wc;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

@@ -1,10 +1,11 @@
-package com.supadata;
+package combine;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.CombineTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
@@ -36,9 +37,14 @@ public class WordCountDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
+        //指定运行的inputformat方式 默认的方式是textinputformat(小文件优化)
+        job.setInputFormatClass(CombineTextInputFormat.class);
+        CombineTextInputFormat.setMaxInputSplitSize(job, 4194304);//最大4M
+        CombineTextInputFormat.setMinInputSplitSize(job, 3145728);//最小3M
+
         //6.设置输入存在的路径与处理后的结果路径
-        FileInputFormat.setInputPaths(job, new Path("e://in0319"));
-        FileOutputFormat.setOutputPath(job, new Path("e://out0319"));
+        FileInputFormat.setInputPaths(job, new Path("/pxx"));
+        FileOutputFormat.setOutputPath(job, new Path("/pxx/0319out"));
 
         //7.提交任务
         boolean rs = job.waitForCompletion(true);

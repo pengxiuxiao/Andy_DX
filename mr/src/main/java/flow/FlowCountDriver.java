@@ -38,8 +38,8 @@ public class FlowCountDriver {
         job.setOutputValueClass(FlowBean.class);
 
         //6.设置文件读取 输出目录
-        FileInputFormat.setInputPaths(job,new Path("e:/flow/in"));
-        FileOutputFormat.setOutputPath(job, new Path("e:/flow/out"));
+        FileInputFormat.setInputPaths(job,new Path("e:/mr/flow/in"));
+        FileOutputFormat.setOutputPath(job, new Path("e:/mr/flow/out"));
         //7.启动任务
         boolean rs = job.waitForCompletion(true);
         System.out.println(rs);

@@ -14,8 +14,5 @@
         <module name="mr" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ct_web" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

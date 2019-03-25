@@ -40,8 +40,8 @@ public class WordCountDriver {
         job.setCombinerClass(WordCountCombiner.class);
 
         //6.设置输入存在的路径与处理后的结果路径
-        FileInputFormat.setInputPaths(job, new Path("/pxx"));
-        FileOutputFormat.setOutputPath(job, new Path("/pxx/0319out"));
+        FileInputFormat.setInputPaths(job, new Path("e:/wc"));
+        FileOutputFormat.setOutputPath(job, new Path("e:/wc/out"));
 
         //7.提交任务
         boolean rs = job.waitForCompletion(true);

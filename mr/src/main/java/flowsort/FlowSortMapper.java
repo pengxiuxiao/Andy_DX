@@ -22,7 +22,7 @@ public class FlowSortMapper extends Mapper<LongWritable,Text, FlowBean, Text> {
         String line = value.toString();
 
         //2.切割
-        String[] fields = line.split("/t");
+        String[] fields = line.split("\t");
 
         //3.取出关键字段
         long upFlow = Long.parseLong(fields[1]);

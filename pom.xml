@@ -14,6 +14,7 @@
         <module>ct_analysis</module>
         <module>hdfs_api</module>
         <module>mr</module>
+        <module>kafka</module>
     </modules>
 
     <properties>

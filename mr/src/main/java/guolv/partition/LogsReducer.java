@@ -13,13 +13,11 @@ import java.io.IOException;
  * @Date: 2019/3/22 15:31
  * @Description:
  */
-public class LogsReducer extends Reducer<Text, NullWritable, Text, NullWritable> {
+public class LogsReducer extends Reducer<Text, LogsBean, Text, LogsBean> {
     @Override
-    protected void reduce(Text key, Iterable<NullWritable> values, Context context) throws IOException, InterruptedException {
+    protected void reduce(Text key, Iterable<LogsBean> values, Context context) throws IOException, InterruptedException {
 
-        //加一个换行
-        String line = key.toString() + "333";
-        System.out.println(line);
-        context.write(new Text(line), NullWritable.get());
+
+        context.write(key, values.iterator().next());
     }
 }

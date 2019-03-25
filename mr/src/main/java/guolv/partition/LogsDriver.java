@@ -33,15 +33,15 @@ public class LogsDriver {
 
         //4.maper输出键值
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(NullWritable.class);
+        job.setMapOutputValueClass(LogsBean.class);
 
         //5.reduce输出键值
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(NullWritable.class);
+        job.setOutputValueClass(LogsBean.class);
 
-        //设置partition
-        job.setPartitionerClass(LogsPartitioner.class);
-        job.setNumReduceTasks(2);
+//        //设置partition
+//        job.setPartitionerClass(LogsPartitioner.class);
+//        job.setNumReduceTasks(2);
 
         //6.文件输入输出路径
         FileInputFormat.setInputPaths(job, new Path("e:/mr/logs/in"));

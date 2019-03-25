@@ -11,6 +11,7 @@
         <module name="ct_consumer" />
         <module name="ct_producer" />
         <module name="hdfs_api" />
+        <module name="kafka" />
         <module name="mr" />
       </profile>
     </annotationProcessing>

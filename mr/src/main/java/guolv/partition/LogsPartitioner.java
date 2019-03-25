@@ -11,10 +11,10 @@ import org.apache.hadoop.mapreduce.Partitioner;
  * @Date: 2019/3/22 15:26
  * @Description:
  */
-public class LogsPartitioner extends Partitioner<Text, NullWritable> {
+public class LogsPartitioner extends Partitioner<Text, LogsBean> {
 
     @Override
-    public int getPartition(Text key, NullWritable nullWritable, int i) {
+    public int getPartition(Text key, LogsBean logs, int i) {
         int rs = 0;
         if (key.toString().contains("supadata.com")) {
             rs = 1;
